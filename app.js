@@ -1,4 +1,6 @@
 /* TYPER */
+
+
 const TYPER = function () {
   if (TYPER.instance_) {
     return TYPER.instance_
@@ -14,6 +16,16 @@ const TYPER = function () {
   this.word = null
   this.wordMinLength = 5
   this.guessedWords = 0
+  this.playerName = document.getElementById("playerName").value;
+  this.score = 0
+  
+  	counter = 0;
+		setInterval(function(){
+			if (counter == 50) {
+				console.log("Mäng läbi")
+			}
+			counter++
+		}, 100)
 
   this.init()
 }
@@ -30,6 +42,7 @@ TYPER.prototype = {
 
     this.canvas.width = this.WIDTH * 2
     this.canvas.height = this.HEIGHT * 2
+	
 
     this.loadWords()
 	
@@ -56,7 +69,7 @@ TYPER.prototype = {
   start: function () {
     this.generateWord()
     this.word.Draw()
-
+	
     window.addEventListener('keypress', this.keyPressed.bind(this))
   },
 
@@ -124,6 +137,20 @@ function structureArrayByWordLength (words) {
 }
 
 window.onload = function () {
-  const typer = new TYPER()
-  window.typer = typer
+
+}
+
+function startGame() {
+		if (document.getElementById("playerName").value=="") {
+			console.log("empty")
+			alert("Sisesta nimi!");
+		} else {
+			document.getElementById("playerName").style.display = "none";
+			document.getElementById("play").style.display = "none";
+			document.getElementById("readme").style.display = "none";
+			console.log("test")
+			const typer = new TYPER()
+			window.typer = typer
+			
+		}
 }

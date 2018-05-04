@@ -17,10 +17,31 @@
       canvas {
         position: absolute;
       }
+	  
+	div, p {
+		width: 300px;
+		height: 100px;
+		
+
+		position: relative;
+		top:0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+
+		margin: auto;
+	}
     </style>
     <script src="app.js"></script>
   </head>
   <body>
+		<p id="readme">Mängu tutvustus</p>
+		<div>
+		<input id="playerName" type="text" placeholder="Nimi..." required>
+		<input id="play" type="submit" value="Mängi!" onclick="startGame()">
+		
+	</div>
+	
     <canvas></canvas>
   </body>
 </html>
