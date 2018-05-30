@@ -3,25 +3,30 @@
   <head>
     <meta charset="UTF-8">
     <title>typer</title>
-    <style> 
-      * {
-        margin: 0;
-        padding: 0;
-      }
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+		}
 
-      html, body, canvas {
-        width: 100%;
-        height: 100%;
-      }
-      
-      canvas {
-        position: absolute;
-      }
-	  
-	div, p {
-		width: 300px;
-		height: 100px;
+		html, body, canvas {
+		width: 100%;
+		height: 100%;
+		}
 		
+		body {
+		background-color: lightblue;
+		}
+
+		canvas {
+		position: absolute;
+		}
+
+		div, p {
+		width: 800px;
+		height: 70px;
+		
+		text-align: center;
 
 		position: relative;
 		top:0;
@@ -30,15 +35,28 @@
 		right: 0;
 
 		margin: auto;
-	}
-	table, th, td {
+		}
+		table, th, td {
 		border: 1px solid black;
-	}
+		}
+	</style>
+	<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Quattrocento">
+    <style>
+      body {
+        font-family: 'Quattrocento', serif;
+        font-size: 28px;
+      }
     </style>
+
     <script src="app.js"></script>
+	
   </head>
   <body>
-		<p id="readme">Mängu tutvustus</p>
+		<p id="readme">Tegemist on klahvimise mänguga.</p>
+		<p id="readme">Mängu eesmärgiks on kirjutada võimalikult palju sõnu õigesti. </p>
+		<p id="readme">Aega selleks on 60 sekundit.</p>
+		<p id="readme" style="font-weight: bold;" >Edu mängimisel!</p>
 		<div>
 		<input id="playerName" type="text" placeholder="Nimi..." required>
 		<input id="play" type="submit" value="Mängi!" onclick="startGame()">
