@@ -21,8 +21,30 @@ const TYPER = function () {
   
   	counter = 0;
 		setInterval(function(){
-			if (counter == 50) {
-				console.log("Mäng läbi")
+			if (counter == 60) {
+				document.getElementsByTagName('canvas')[0].style.display = "none";
+				document.getElementById("endscreen").style.display = "block";
+				
+				
+				localStorage.setItem(typer.score, typer.playerName);
+				document.getElementById("score").innerHTML = typer.playerName + ": " + typer.score;
+				var top10 = [];
+				for(var i=0, len=localStorage.length; i<len; i++) {
+					var key = localStorage.key(i);
+					var value = localStorage[key];
+					top10.push(key);
+					//console.log(key + " => " + value);
+				}
+				top10.sort();
+				top10.reverse();
+				top10.slice(0, 9);
+				var tableContent = "<tr><th>#</th><th>Player</th><th>Score</th></tr>";
+				for(var i=0; i<top10.length; i++) {
+					//console.log(localStorage[top10[i]] + ": " + top10[i]);
+					tableContent += "<tr><td>"+(i+1)+"</td><td>"+localStorage[top10[i]]+ "</td><td>"+top10[i]+"</td></tr>";
+				}
+				document.getElementById("top10").innerHTML = tableContent;
+				
 			}
 			counter++
 		}, 100)
@@ -74,7 +96,6 @@ TYPER.prototype = {
   },
 
 
-
   generateWord: function () {
     const generatedWordLength = this.wordMinLength + parseInt(this.guessedWords / 5)
     const randomIndex = (Math.random() * (this.words[generatedWordLength].length - 1)).toFixed()
@@ -88,9 +109,11 @@ TYPER.prototype = {
 
     if (letter === this.word.left.charAt(0)) {
       this.word.removeFirstLetter()
+		this.score += 1;
 
       if (this.word.left.length === 0) {
         this.guessedWords += 1
+		this.score += 10;
 
         this.generateWord()
       }
@@ -148,7 +171,6 @@ function startGame() {
 			document.getElementById("playerName").style.display = "none";
 			document.getElementById("play").style.display = "none";
 			document.getElementById("readme").style.display = "none";
-			console.log("test")
 			const typer = new TYPER()
 			window.typer = typer
 			

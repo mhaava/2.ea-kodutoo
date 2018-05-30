@@ -31,6 +31,9 @@
 
 		margin: auto;
 	}
+	table, th, td {
+		border: 1px solid black;
+	}
     </style>
     <script src="app.js"></script>
   </head>
@@ -40,6 +43,15 @@
 		<input id="playerName" type="text" placeholder="Nimi..." required>
 		<input id="play" type="submit" value="Mängi!" onclick="startGame()">
 		
+		</div>
+	
+	<div id="endscreen" style="display:none">
+			<h1>Mäng läbi!</h1>
+			<h1 id="score"></h1>
+			<br>
+			<br>
+			<table id="top10">
+			</table>
 	</div>
 	
     <canvas></canvas>
