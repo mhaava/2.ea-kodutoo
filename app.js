@@ -21,7 +21,7 @@ const TYPER = function () {
   
   	counter = 0;
 		setInterval(function(){
-			if (counter == 60) {
+			if (counter == 600) {
 				document.getElementsByTagName('canvas')[0].style.display = "none";
 				document.getElementById("endscreen").style.display = "block";
 				
