@@ -176,3 +176,16 @@ function startGame() {
 			
 		}
 }
+
+var nightmodeint=0;
+function nightMode() {
+	if (nightmodeint==0) {
+		nightmodeint=1;
+		document.getElementById("body").style.backgroundColor = "black";
+		document.body.style.color ="white";
+	} else {
+		nightmodeint=0;
+		document.getElementById("body").style.backgroundColor = "lightblue";
+		document.body.style.color ="black";
+	}
+}
